@@ -6,13 +6,14 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/04 09:18:47 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/04 18:30:00 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include"MLX42/include/MLX42/MLX42.h"
 # include"libft/libft.h"
 # include<unistd.h>
 # include<stdio.h>
