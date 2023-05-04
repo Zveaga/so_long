@@ -6,14 +6,14 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/02 15:51:56 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/04 09:18:47 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include"libft.h"
+# include"libft/libft.h"
 # include<unistd.h>
 # include<stdio.h>
 # include<stdlib.h>
@@ -41,10 +41,7 @@ typedef	struct s_game
 t_game			*initialize_environment(char *str);
 t_game 			*initialize_game_parameters(char	**array);
 
-
-
-//-------GET_NEXT_LINE-------//
-char			*get_next_line(int fd);
+//-------IMAGES-------//
 
 //-------UTILS-------//
 void			raise_error(char *str);
@@ -62,8 +59,5 @@ void			path_checker(t_game *game_data);
 void			get_collectables(t_game *game_data, char *map);
 size_t			get_row(char **map, char c, size_t height, size_t width);
 size_t			get_col(char **map, char c, size_t height, size_t width);
-
-
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 17:57:20 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/04/29 15:30:34 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/04 09:21:07 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 char	*ft_strchr(const char *str, int c)
 {	
-	while (*str)
+	while (str && *str)
 	{
 		if (*str == (char)c)
-		{
 			return ((char *)str);
-		}
 		str++;
 	}
 	if ((char)c == '\0')
-	{
 		return ((char *)str);
-	}
 	return (0);
 }
 

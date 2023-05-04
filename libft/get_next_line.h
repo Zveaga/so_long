@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/24 13:33:58 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/04 09:21:37 by rares         ########   odam.nl         */
+/*   Created: 2022/11/25 13:38:48 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/05/04 12:57:16 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_strlen(const char *s)
-{
-	int	i;
+# include"libft.h"
+# include<stdlib.h>
+# include<fcntl.h>
+# include<unistd.h>
+# include<stdio.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	10
+# endif
 
-	i = 0;
-	if (s == NULL)
-		return (0);
-	while (s && s[i])
-		i++;
-	return (i);
-}
+char	*get_next_line(int fd);
 
-// int main(void)
-// {
-// 	char *s = "123456789";
-// 	printf("%zu\n", ft_strlen(s));
-// }
+int		len_line(char *reserve);
+
+#endif

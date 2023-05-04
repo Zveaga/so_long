@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/24 13:15:40 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/04/28 16:56:09 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/04 12:51:58 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	while (s2 && s2[j])
-	{
-		s3[i] = s2[j];
-		j++;
-		i++;
-	}
+		s3[i++] = s2[j++];
 	free(s1);
 	s3[i] = '\0';
 	return (s3);

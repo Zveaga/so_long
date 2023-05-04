@@ -36,6 +36,8 @@ ft_putendl_fd.c \
 ft_putnbr_fd.c \
 ft_putstr_fd.c \
 ft_free_array.c \
+get_next_line_utils.c \
+get_next_line.c \
 
 SRC_BONUS = \
 ft_lstnew.c \

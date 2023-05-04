@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   get_next_line_utils.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/24 13:33:58 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/04 09:21:37 by rares         ########   odam.nl         */
+/*   Created: 2022/12/12 17:17:16 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/05/04 09:22:05 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include"get_next_line.h"
 
-int	ft_strlen(const char *s)
+int	len_line(char *reserve)
 {
 	int	i;
 
 	i = 0;
-	if (s == NULL)
-		return (0);
-	while (s && s[i])
+	while (reserve[i] != '\n' && reserve[i])
+		i++;
+	if (reserve[i] == '\n')
 		i++;
 	return (i);
 }
-
-// int main(void)
-// {
-// 	char *s = "123456789";
-// 	printf("%zu\n", ft_strlen(s));
-// }
