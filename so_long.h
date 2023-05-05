@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/05 10:29:33 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/05 15:57:43 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ typedef	struct s_game
 
 typedef	struct s_image
 {
-	mlx_image_t	*space;
-	mlx_image_t	*ship;
+	mlx_image_t	*player;
+	mlx_image_t	*collectible;
 	mlx_image_t	*wall;
+	mlx_image_t	*space;
 	mlx_image_t	*exit_closed;
 	mlx_image_t	*exit_open;
-	mlx_image_t	*collectable;	
 }				t_image;
 
 //-------T_GAME FUNCTIONS-------//

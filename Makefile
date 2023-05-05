@@ -7,7 +7,8 @@ utils.c \
 check_map.c \
 fill_structs.c \
 utils_map.c \
-load_textures.c \
+load_textures_1.c \
+load_textures_2.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -18,7 +19,7 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 MLX42_A = $(MLX42_DIR)/build/libmlx42.a
 
 CFLAGS = -Wall -Wextra -Werror
-MLX42_FLAGS = -lglfw -framework Cocoa -framework OpenGL -framework IOKit
+MLX42_FLAGS = -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
 
 CC = cc
 
