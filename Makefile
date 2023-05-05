@@ -7,6 +7,7 @@ utils.c \
 check_map.c \
 fill_structs.c \
 utils_map.c \
+load_textures.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -17,19 +18,19 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 MLX42_A = $(MLX42_DIR)/build/libmlx42.a
 
 CFLAGS = -Wall -Wextra -Werror
-MLX42_FLAGS = -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
+MLX42_FLAGS = -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 
 CC = cc
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) $(LIBFT_A) -I $(MLX42_DIR) $(MLX42_A) $(MLX42_FLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(MLX42_A)
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) $(MLX42_FLAGS) $(LIBFT_A) $(MLX42_A) $(OBJ) -o $(NAME)
 
 $(LIBFT_A):
 	make -C libft
 
-$(MLX42_A): MLX42/CMakeLists.txt
+$(MLX42_A):
 	cd MLX42 && cmake -B build
 	cd MLX42 && cmake --build build -j4
 

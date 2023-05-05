@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/04 18:30:00 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/05 10:29:33 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ typedef	struct s_game
 	size_t		exit_col;
 	size_t		collectibles;
 }				t_game;
+
+typedef	struct s_image
+{
+	mlx_image_t	*space;
+	mlx_image_t	*ship;
+	mlx_image_t	*wall;
+	mlx_image_t	*exit_closed;
+	mlx_image_t	*exit_open;
+	mlx_image_t	*collectable;	
+}				t_image;
 
 //-------T_GAME FUNCTIONS-------//
 t_game			*initialize_environment(char *str);
