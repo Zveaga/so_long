@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/05 15:57:43 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/09 17:24:38 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,9 @@
 #  define BUFFER_SIZE	10
 # endif
 
+# define PIXELS 64
+
 //-------STRUCTS-------//
-typedef	struct s_game
-{
-	char		**map_as_array;
-	size_t		height;
-	size_t		width;
-	size_t		player_row;
-	size_t		player_col;
-	size_t		exit_row;
-	size_t		exit_col;
-	size_t		collectibles;
-}				t_game;
 
 typedef	struct s_image
 {
@@ -47,6 +38,20 @@ typedef	struct s_image
 	mlx_image_t	*exit_closed;
 	mlx_image_t	*exit_open;
 }				t_image;
+
+typedef	struct s_game
+{
+	mlx_t		*mlx;
+	char		**map_as_array;
+	size_t		height;
+	size_t		width;
+	size_t		player_row;
+	size_t		player_col;
+	size_t		exit_row;
+	size_t		exit_col;
+	size_t		collectibles;
+	t_image		*image;
+}				t_game;
 
 //-------T_GAME FUNCTIONS-------//
 t_game			*initialize_environment(char *str);
@@ -68,6 +73,8 @@ void			check_empty_lines(char *str);
 void			get_start_position(t_game *game_data, char c);
 void			path_checker(t_game *game_data);
 void			get_collectables(t_game *game_data, char *map);
+
+void			render_walls(t_game *game_data);
 size_t			get_row(char **map, char c, size_t height, size_t width);
 size_t			get_col(char **map, char c, size_t height, size_t width);
 

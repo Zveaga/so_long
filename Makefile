@@ -8,7 +8,9 @@ check_map.c \
 fill_structs.c \
 utils_map.c \
 load_textures_1.c \
-load_textures_2.c
+load_textures_2.c \
+map_rendering.c \
+move_hooks.c \
 
 OBJ = $(SRC:.c=.o)
 
