@@ -21,14 +21,17 @@ LIBFT_A = $(LIBFT_DIR)/libft.a
 MLX42_A = $(MLX42_DIR)/build/libmlx42.a
 
 CFLAGS = -Wall -Wextra -Werror
-MLX42_FLAGS = -lglfw -framework Cocoa -framework OpenGL -framework IOKit
+MLX42_FLAGS = -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
 
 CC = gcc
 
 all: $(NAME)
 
+# $(NAME): $(OBJ) $(MLX42_A)
+# 	$(CC) $(CFLAGS) -I $(LIBFT_DIR) $(MLX42_FLAGS) $(LIBFT_A) $(MLX42_A) -Iinclude -lglfw -L"/opt/homebrew/Cellar/glfw/3.3.8/lib/" $(OBJ) -o $(NAME)
+
 $(NAME): $(OBJ) $(MLX42_A)
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) $(MLX42_FLAGS) $(LIBFT_A) $(MLX42_A) -Iinclude -lglfw -L"/opt/homebrew/Cellar/glfw/3.3.8/lib/" $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) $(MLX42_FLAGS) $(LIBFT_A) $(MLX42_A) $(OBJ) -o $(NAME)
 
 $(LIBFT_A):
 	make -C libft

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/15 11:24:50 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/15 16:56:35 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ typedef	struct s_game
 	size_t		player_col;
 	size_t		exit_row;
 	size_t		exit_col;
+	size_t		can_exit;
 	size_t		collectibles;
+	size_t		collected;
+	size_t		moves;
 	t_image		*images;
 }				t_game;
 
@@ -88,6 +91,10 @@ void			render_map(t_game *game_data);
 void			fill_space(t_game *game_data);
 size_t			get_row(char **map, char c, size_t height, size_t width);
 size_t			get_col(char **map, char c, size_t height, size_t width);
+
+//-------MOVES-------//
+
+void			move_hook_callback(mlx_key_data_t keydata, void *data);
 
 
 #endif
