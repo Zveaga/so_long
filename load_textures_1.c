@@ -6,13 +6,13 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/05 10:32:02 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/05 15:56:25 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/12 11:34:00 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-t_image	*load_wall(mlx_t *mlx, t_image *image)
+void	load_wall(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t *wall;
 	
@@ -23,10 +23,9 @@ t_image	*load_wall(mlx_t *mlx, t_image *image)
 	if(image->wall == NULL)
 		raise_error("Problem creating the wall image");
 	mlx_delete_texture(wall);
-	return (image);
 }
 
-t_image	*load_space(mlx_t *mlx, t_image *image)
+void	load_space(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t *space;
 	
@@ -37,10 +36,9 @@ t_image	*load_space(mlx_t *mlx, t_image *image)
 	if(image->space == NULL)
 		raise_error("Problem creating the space image");
 	mlx_delete_texture(space);
-	return (image);
 }
 
-t_image	*load_exit_closed(mlx_t *mlx, t_image *image)
+void	load_exit_closed(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t *exit_closed;
 	
@@ -51,10 +49,9 @@ t_image	*load_exit_closed(mlx_t *mlx, t_image *image)
 	if(image->exit_closed == NULL)
 		raise_error("Problem creating the exit_closed image");
 	mlx_delete_texture(exit_closed);
-	return (image);
 }
 
-t_image	*load_exit_open(mlx_t *mlx, t_image *image)
+void	load_exit_open(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t *exit_open;
 	
@@ -65,5 +62,4 @@ t_image	*load_exit_open(mlx_t *mlx, t_image *image)
 	if(image->exit_open == NULL)
 		raise_error("Problem creating the exit_open image");
 	mlx_delete_texture(exit_open);
-	return (image);
 }

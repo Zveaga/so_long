@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/05 14:41:23 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/12 11:34:37 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 t_game *initialize_game_parameters(char	**array)
 {
-	t_game	*game;
+	t_game	*game_data;
 
-	game = malloc(sizeof(t_game));
-	if (game == NULL)
+	game_data = malloc(sizeof(t_game));
+	if (game_data == NULL)
 		raise_error("Failed to allocate memmory for the game struct.");
-	game->map_as_array = array;
-	game->height = count_rows(array);
-	game->width = ft_strlen(array[0]);
+	game_data->map_as_array = array;
+	game_data->height = count_rows(array);
+	game_data->width = ft_strlen(array[0]);
 
-	get_start_position(game, 'P');
-	get_start_position(game, 'E');
-	return (game);
+	get_start_position(game_data, 'P');
+	get_start_position(game_data, 'E');
+	return (game_data);
 }
 
 t_game	*initialize_environment(char *str)
@@ -42,9 +42,7 @@ t_game	*initialize_environment(char *str)
 		raise_error("map_as_array returned NULL.");
 	check_map_symbols(map_as_string);
 	check_shape(map_as_array);
-
 	game_data = initialize_game_parameters(map_as_array);
-	
 	check_walls(game_data);
 	get_collectables(game_data, map_as_string);
 	path_checker(game_data);
@@ -54,8 +52,23 @@ t_game	*initialize_environment(char *str)
 
 	printf("%s\n", map_as_string);
 	free(map_as_string);
-	ft_free_array(map_as_array, game_data->height); // -> might need it
+	//ft_free_array(map_as_array, game_data->height); // -> might need it
 	return(game_data);
+}
+
+t_image	*load_images(mlx_t *mlx)
+{
+	t_image	*image_data;
+	
+	image_data = malloc(sizeof(t_image));
+	if (image_data == NULL)
+		raise_error("Failed to allocate memmory for image_data struct.");
+	load_player(mlx, image_data);
+	load_collectible(mlx, image_data);
+	load_wall(mlx, image_data);
+	load_space(mlx, image_data);
+	load_exit_closed(mlx, image_data);
+	return (image_data);
 }
 
 	// printf("player_col: %zu\n", game_data->player_col);
