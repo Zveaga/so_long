@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/15 16:58:56 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/16 19:43:21 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_game	*initialize_environment(char *str)
 	//printf("%zu\n", game_data->height);
 	//printf("\n%zu\n", game_data->collectibles);
 
-	printf("%s\n", map_as_string);
+	//printf("%s\n", map_as_string);
 	free(map_as_string);
 	//ft_free_array(map_as_array, game_data->height); // -> might need it
 	return(game_data);

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 13:34:43 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/15 12:36:46 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/16 17:21:01 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render_symbol_selector(t_game *game_data, size_t row, size_t col)
 	}
 	if (game_data->map_as_array[row][col] == 'C')
 	{
-		if (mlx_image_to_window(game_data->mlx, game_data->images->collectible,
+		if (mlx_image_to_window(game_data->mlx, game_data->images->collectibles,
 				PIXELS * col, PIXELS * row) == -1)
 			raise_error("Error displaying the collectible image.");
 	}

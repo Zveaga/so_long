@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/15 16:56:35 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/16 19:04:23 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 typedef	struct s_image
 {
 	mlx_image_t	*player;
-	mlx_image_t	*collectible;
+	mlx_image_t	*collectibles;
 	mlx_image_t	*wall;
 	mlx_image_t	*space;
 	mlx_image_t	*exit_closed;
@@ -95,6 +95,13 @@ size_t			get_col(char **map, char c, size_t height, size_t width);
 //-------MOVES-------//
 
 void			move_hook_callback(mlx_key_data_t keydata, void *data);
+void			move_up(t_game *game_data);
+void			move_down(t_game *game_data);
+void			move_left(t_game *game_data);
+void			move_right(t_game *game_data);
+void			check_progress(t_game *game_data);
+void 			end_game(t_game *game_data);
+
 
 
 #endif

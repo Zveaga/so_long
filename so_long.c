@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:39 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/15 17:21:10 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/16 19:43:40 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ int	main(int argc, char **argv)
 	mlx_loop(game_data->mlx);
 	
 	mlx_terminate(game_data->mlx);
-	printf("collected: %zu\n", game_data->collected);
-	printf("can_exit: %zu\n", game_data->can_exit);
+	//printf("collected: %zu\n", game_data->collected);
+	//printf("can_exit: %zu\n", game_data->can_exit);
+	//printf("moves: %zu\n", game_data->moves);
 	
 	//FREE
 	ft_free_array(game_data->map_as_array, game_data->height);
