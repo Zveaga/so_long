@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 19:04:23 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/17 19:35:01 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 
 # include"MLX42/include/MLX42/MLX42.h"
 # include"libft/libft.h"
+# include"printf/ft_printf.h"
 # include<unistd.h>
 # include<stdio.h>
 # include<stdlib.h>
 # include<fcntl.h>
 # include<errno.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	10
-# endif
-
 # define PIXELS 64
 
 //-------STRUCTS-------//
-
 typedef	struct s_image
 {
 	mlx_image_t	*player;
@@ -86,7 +82,6 @@ void			check_empty_lines(char *str);
 void			get_start_position(t_game *game_data, char c);
 void			path_checker(t_game *game_data);
 void			get_collectables(t_game *game_data, char *map);
-
 void			render_map(t_game *game_data);
 void			fill_space(t_game *game_data);
 size_t			get_row(char **map, char c, size_t height, size_t width);

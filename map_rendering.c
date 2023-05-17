@@ -6,21 +6,15 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 13:34:43 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 17:21:01 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/17 15:34:10 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
 
-void	render_symbol_selector(t_game *game_data, size_t row, size_t col)
+static void	render_symbol_selector(t_game *game_data, size_t row, size_t col)
 {
-	if (game_data->map_as_array[row][col] == 'P')
-	{
-		if (mlx_image_to_window(game_data->mlx, game_data->images->player,
-				PIXELS * col, PIXELS * row) == -1)
-			raise_error("Error displaying the player image.");
-	}
 	if (game_data->map_as_array[row][col] == 'E')
 	{
 		if (mlx_image_to_window(game_data->mlx, game_data->images->exit_closed,
@@ -39,6 +33,14 @@ void	render_symbol_selector(t_game *game_data, size_t row, size_t col)
 				PIXELS * col, PIXELS * row) == -1)
 			raise_error("Error displaying the wall image.");
 	}
+}
+
+static void	render_player(t_game *game_data)
+{
+	
+	if (mlx_image_to_window(game_data->mlx, game_data->images->player,
+			PIXELS * game_data->player_col, PIXELS * game_data->player_row) == -1)
+		raise_error("Error displaying the player image.");
 }
 
 void	fill_space(t_game *game_data)
@@ -76,5 +78,6 @@ void	render_map(t_game *game_data)
 		}
 		row++;
 	}
+	render_player(game_data);
 
 }

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/16 17:27:52 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 19:50:16 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/17 19:34:19 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	move_up(t_game *game_data)
 	game_data->player_row--;
 	game_data->images->player->instances[0].y -= PIXELS;
 	game_data->moves++;
-	printf("Moves: %zu\n", game_data->moves);
+	ft_printf("Moves: %i\n", game_data->moves);// <----REPLACE!!!!
 	//check_progress(game_data);
 }
 
@@ -71,7 +71,7 @@ void	move_down(t_game *game_data)
 	game_data->player_row++;
 	game_data->images->player->instances[0].y += PIXELS;
 	game_data->moves++;
-	printf("Moves: %zu\n", game_data->moves);
+	ft_printf("Moves: %i\n", game_data->moves);// <----REPLACE!!!!
 	//check_progress(game_data);
 }
 
@@ -94,7 +94,7 @@ void	move_left(t_game *game_data)
 	game_data->player_col--;
 	game_data->images->player->instances[0].x -= PIXELS;
 	game_data->moves++;
-	printf("Moves: %zu\n", game_data->moves);
+	ft_printf("Moves: %i\n", game_data->moves); // <----REPLACE!!!!
 	//check_progress(game_data);
 }
 
@@ -117,7 +117,6 @@ void	move_right(t_game *game_data)
 	game_data->player_col++;
 	game_data->images->player->instances[0].x += PIXELS;
 	game_data->moves++;
-	write(1, &game_data->moves, 8);
-	//printf("Moves: %zu\n", game_data->moves);
+	ft_printf("Moves: %i\n", game_data->moves);// <----REPLACE!!!!
 	//check_progress(game_data);
 }

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 12:24:29 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 19:47:09 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/17 19:31:03 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,4 @@ void	move_hook_callback(mlx_key_data_t keydata, void *data)
 		move_left(game_data);
 	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS))
 		move_right(game_data);
-	
-	// if ((keydata.key == MLX_KEY_D) && (keydata.key == MLX_KEY_W))
-	// 	return ;
 }

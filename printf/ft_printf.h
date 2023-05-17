@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/25 13:38:48 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/17 16:07:53 by rares         ########   odam.nl         */
+/*   Created: 2022/11/22 13:41:37 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/01/19 12:36:10 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include"libft.h"
-# include<stdlib.h>
-# include<fcntl.h>
+# include<stdarg.h>
 # include<unistd.h>
-# include<stdio.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	100
-# endif
 
-char	*get_next_line(int fd);
+int		ft_print_char(int c);
 
-int		len_line(char *reserve);
+int		ft_print_str(char *str);
+
+int		ft_print_d_i(long int n);
+
+int		ft_print_u(unsigned int n);
+
+int		ft_print_hex(unsigned int n, char format);
+
+int		ft_print_ptr(unsigned long n);
+
+int		len_n(long int n);
+
+int		len_hex(unsigned int n);
+
+int		ft_printf(const char *str, ...);
 
 #endif

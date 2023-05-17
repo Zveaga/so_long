@@ -1,28 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   check_progress.c                                   :+:    :+:            */
+/*   ft_print_d_i.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/05/16 17:25:57 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/17 19:35:12 by rares         ########   odam.nl         */
+/*   Created: 2022/11/23 10:13:43 by rares         #+#    #+#                 */
+/*   Updated: 2023/01/19 12:35:55 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"so_long.h"
+#include"ft_printf.h"
 
-void	check_progress(t_game *game_data)
+int	len_n(long int n)
 {
-	char	**map;
+	int	len;
 
-	map = game_data->map_as_array;
-	if (game_data->collected == game_data->collectibles)
-		game_data->can_exit = 1;
-	if (map[game_data->player_row][game_data->player_col] == 'E')
+	len = 0;
+	if (n <= 0)
 	{
-		ft_printf("You won!\n");
-		mlx_close_window(game_data->mlx);
+		n *= -1;
+		len++;
 	}
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
 
+int	ft_print_d_i(long int n)
+{
+	int	ret;
+
+	ret = len_n(n);
+	if (n < 0)
+	{
+		n *= -1;
+		write(1, "-", 1);
+	}
+	if (n >= 0 && n <= 9)
+	{
+		n += '0';
+		write(1, &n, 1);
+	}
+	else
+	{
+		ft_print_d_i(n / 10);
+		ft_print_d_i(n % 10);
+	}
+	return (ret);
+}

@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   ft_print_ptr.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/25 13:38:48 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/17 16:07:53 by rares         ########   odam.nl         */
+/*   Created: 2023/01/13 14:24:04 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/05/17 15:57:58 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include"ft_printf.h"
 
-# include"libft.h"
-# include<stdlib.h>
-# include<fcntl.h>
-# include<unistd.h>
-# include<stdio.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	100
-# endif
+int	len_ptr(unsigned long n)
+{
+	int	len;
 
-char	*get_next_line(int fd);
+	len = 0;
+	while (n > 0)
+	{
+		n /= 16;
+		len++;
+	}
+	return (len);
+}
 
-int		len_line(char *reserve);
+int	ft_print_ptr(unsigned long n)
+{
+	char	*dict;
+	int		ret;
 
-#endif
+	ret = len_ptr(n);
+	dict = "0123456789abcdef";
+	if (n == 0)
+		ret += 1;
+	if (n >= 0 && n < 16)
+		ft_print_char(dict[n]);
+	else
+	{
+		ft_print_ptr(n / 16);
+		ft_print_ptr(n % 16);
+	}
+	return (ret);
+}

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   ft_print_u.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/25 13:38:48 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/17 16:07:53 by rares         ########   odam.nl         */
+/*   Created: 2022/11/23 12:20:38 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/01/19 12:36:03 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include"ft_printf.h"
 
-# include"libft.h"
-# include<stdlib.h>
-# include<fcntl.h>
-# include<unistd.h>
-# include<stdio.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE	100
-# endif
+int	ft_print_u(unsigned int n)
+{
+	int	ret;
 
-char	*get_next_line(int fd);
-
-int		len_line(char *reserve);
-
-#endif
+	ret = 0;
+	ret = len_n(n);
+	if (n >= 0 && n <= 9)
+	{
+		n += '0';
+		write(1, &n, 1);
+	}
+	else
+	{
+		ft_print_u(n / 10);
+		ft_print_u(n % 10);
+	}
+	return (ret);
+}
