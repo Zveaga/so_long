@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:39 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 12:05:29 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/18 17:32:37 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	game_data->mlx = mlx_init(game_data->width * PIXELS, 
 		game_data->height * PIXELS, "so_long", false);
 	if (game_data->mlx == NULL)
-		return (EXIT_FAILURE);
+		raise_error("Error while initializing the mlx handle.");
 	image_data = load_images(game_data->mlx);
 	game_data->images = image_data;
 	fill_space(game_data);
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	ft_free_array(game_data->map_as_array, game_data->height);
 	free(game_data);
 	free(image_data);
-	//atexit(check);
+	atexit(check);
 	return (0);
 }
 

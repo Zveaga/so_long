@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 12:08:28 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/18 19:59:37 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include<errno.h>
 
 # define PIXELS 64
+
+void check();
 
 //-------STRUCTS-------//
 typedef	struct s_image
@@ -70,6 +72,7 @@ void	load_exit_open(mlx_t *mlx, t_image *image);
 
 //-------UTILS-------//
 void			raise_error(char *str);
+void 			raise_error_free(char *str, t_game *game_data);
 void			check_extension(char *str);
 
 //-------MAP-------//
@@ -95,7 +98,9 @@ void			move_down(t_game *game_data);
 void			move_left(t_game *game_data);
 void			move_right(t_game *game_data);
 void			check_progress(t_game *game_data);
-void 			end_game(t_game *game_data);
+//void 			end_game(t_game *game_data);
+void			display_moves(t_game *game_data);
+
 
 
 

@@ -13,6 +13,7 @@ map_rendering.c \
 move_hook.c \
 moves.c \
 check_progress.c \
+display_moves.c
 
 OBJ = $(SRC:.c=.o)
 

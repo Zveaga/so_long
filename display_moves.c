@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putendl_fd.c                                    :+:    :+:            */
+/*   display_moves.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/11 12:22:34 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/18 16:47:38 by raanghel      ########   odam.nl         */
+/*   Created: 2023/05/18 17:28:38 by raanghel      #+#    #+#                 */
+/*   Updated: 2023/05/18 20:14:54 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include"so_long.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	display_moves(t_game *game_data)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	static char *moves;
+	
+	moves = ft_itoa(game_data->moves);
+	if (moves == NULL)
+		raise_error("Error when converting moves to string.");
+	if (mlx_put_string(game_data->mlx, moves, (2 * PIXELS), 
+		((game_data->height - 1) * PIXELS) + 22) == NULL)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		raise_error("Error displaying the moves.");
 	}
-	write(fd, "\n", 1);
+	free(moves);
 }

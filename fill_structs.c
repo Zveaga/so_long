@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/18 12:10:08 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/18 19:28:52 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_game	*initialize_environment(char *str)
 	map_as_string = read_map(str);
 	
 	check_empty_lines(map_as_string);
-	map_as_array = 	ft_split(map_as_string, '\n');
+	map_as_array = ft_split(map_as_string, '\n');
 	if (map_as_array == NULL)
 		raise_error("map_as_array returned NULL.");
 	check_map_symbols(map_as_string);
@@ -50,6 +50,7 @@ t_game	*initialize_environment(char *str)
 	get_collectables(game_data, map_as_string);
 	path_checker(game_data);
 
+	printf("to collect: %zu\n", game_data->collectibles);
 	//printf("%zu\n", game_data->height);
 	//printf("\n%zu\n", game_data->collectibles);
 
@@ -71,6 +72,7 @@ t_image	*load_images(mlx_t *mlx)
 	load_wall(mlx, image_data);
 	load_space(mlx, image_data);
 	load_exit_closed(mlx, image_data);
+	load_exit_open(mlx, image_data);
 	return (image_data);
 }
 

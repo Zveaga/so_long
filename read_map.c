@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/26 15:58:47 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/04 12:58:20 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/18 17:20:32 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ char	*read_map(char *map)
 		raise_error("Failed to open file.");
 	map_as_string = NULL;
 	line = get_next_line(fd);
-	while(line)
+	if (line == NULL)
+		raise_error("Error while reading the map");
+	while (line)
 	{
 		map_as_string = ft_strjoin(map_as_string, line);
 		if (map_as_string == NULL)
-			exit(EXIT_FAILURE);
+			raise_error("Error while reading the map.");
 		free(line);
 		line = get_next_line(fd);
 	}

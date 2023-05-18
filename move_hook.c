@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 12:24:29 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 12:05:03 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/18 20:01:01 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	move_hook_callback(mlx_key_data_t keydata, void *data)
 	
 	game_data = (t_game *)data;
 	check_progress(game_data);
+	display_moves(game_data);
 	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(game_data->mlx);
 	if ((keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS))
