@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/05 10:32:02 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 17:32:00 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/18 13:03:23 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_player(mlx_t *mlx, t_image *image)
 {
 	mlx_texture_t *player;
 	
-	player = mlx_load_png("./textures/ship_start.png");
+	player = mlx_load_png("./textures/player.png");
 	if (player == NULL)
 		raise_error("Problem loading the player png");
 	image->player = mlx_texture_to_image(mlx, player);

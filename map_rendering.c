@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 13:34:43 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/17 15:34:10 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/18 13:18:34 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ void	fill_space(t_game *game_data)
 	size_t		row;
 	size_t		col;
 
-	row = 1;
-	while (row < game_data->height - 1)
+	row = 0;
+	while (row < game_data->height)
 	{
-		col = 1;
-		while (col < game_data->width - 1)
+		col = 0;
+		while (col < game_data->width)
 		{
 			if (mlx_image_to_window(game_data->mlx, game_data->images->space, PIXELS * col, PIXELS * row) == -1)
 				raise_error("Error filling the background.");

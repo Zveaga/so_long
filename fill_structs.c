@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/17 13:31:04 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/18 12:10:08 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_game *initialize_game_parameters(char	**array)
 	game_data->width = ft_strlen(array[0]);
 	game_data->collected = 0;
 	game_data->can_exit = 0;
+	game_data->moves = 0;
 
 	get_start_position(game_data, 'P');
 	get_start_position(game_data, 'E');
