@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/05 10:32:02 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/16 17:32:13 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 16:38:03 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,52 @@
 
 void	load_wall(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t *wall;
-	
+	mlx_texture_t	*wall;
+
 	wall = mlx_load_png("./textures/wall.png");
 	if (wall == NULL)
-		raise_error("Problem loading the wall png");
+		raise_error("Problem loading the wall png.");
 	image->wall = mlx_texture_to_image(mlx, wall);
-	if(image->wall == NULL)
-		raise_error("Problem creating the wall image");
+	if (image->wall == NULL)
+		raise_error("Problem creating the wall image.");
 	mlx_delete_texture(wall);
 }
 
 void	load_space(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t *space;
-	
+	mlx_texture_t	*space;
+
 	space = mlx_load_png("./textures/space.png");
 	if (space == NULL)
-		raise_error("Problem loading the space png");
+		raise_error("Problem loading the space png.");
 	image->space = mlx_texture_to_image(mlx, space);
-	if(image->space == NULL)
-		raise_error("Problem creating the space image");
+	if (image->space == NULL)
+		raise_error("Problem creating the space image.");
 	mlx_delete_texture(space);
 }
 
 void	load_exit_closed(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t *exit_closed;
-	
+	mlx_texture_t	*exit_closed;
+
 	exit_closed = mlx_load_png("./textures/exit_closed.png");
 	if (exit_closed == NULL)
-		raise_error("Problem loading the exit_closed png");
+		raise_error("Problem loading the exit_closed png.");
 	image->exit_closed = mlx_texture_to_image(mlx, exit_closed);
-	if(image->exit_closed == NULL)
-		raise_error("Problem creating the exit_closed image");
+	if (image->exit_closed == NULL)
+		raise_error("Problem creating the exit_closed image.");
 	mlx_delete_texture(exit_closed);
 }
 
 void	load_exit_open(mlx_t *mlx, t_image *image)
 {
-	mlx_texture_t *exit_open;
-	
+	mlx_texture_t	*exit_open;
+
 	exit_open = mlx_load_png("./textures/exit_open.png");
 	if (exit_open == NULL)
-		raise_error("Problem loading the exit_open png");
+		raise_error("Problem loading the exit_open png.");
 	image->exit_open = mlx_texture_to_image(mlx, exit_open);
-	if(image->exit_open == NULL)
-		raise_error("Problem creating the exit_open image");
+	if (image->exit_open == NULL)
+		raise_error("Problem creating the exit_open image.");
 	mlx_delete_texture(exit_open);
 }

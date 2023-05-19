@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/28 20:17:02 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/10 09:55:24 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 17:01:00 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,18 @@
 void	check_empty_lines(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	if (str == 0)
 		raise_error("Map is empty!");
-	while(str[i])
+	while (str[i])
 	{
-		if(str[0] == '\n' || (str[i] == '\n' && str[i + 1] == '\n'))
-			raise_error("Map contains empty lines!");		
+		if (str[0] == '\n' || (str[i] == '\n' && str[i + 1] == '\n'))
+			raise_error("Map contains empty lines!");
 		i++;
 	}
-	if(str[i - 1] == '\n')
-		raise_error("Map contains empty lines!");		
-
+	if (str[i - 1] == '\n')
+		raise_error("Map contains empty lines!");
 }
 
 void	check_map_symbols(const char *str)
@@ -36,7 +35,7 @@ void	check_map_symbols(const char *str)
 	int	exit;
 	int	player;
 	int	collectible;
-	
+
 	i = 0;
 	exit = 0;
 	player = 0;
@@ -50,21 +49,21 @@ void	check_map_symbols(const char *str)
 		if (str[i] == 'C')
 			collectible++;
 		if (!ft_strrchr("01CEP\n", str[i]))
-			raise_error("Map contains invalid symbols!(1)");
+			raise_error("Invalid symbols!");
 		i++;
 	}
 	if (exit != 1 || player != 1 || collectible == 0)
-		raise_error("Map contains invalid symbols!(2)");
+		raise_error("Invalid symbols!");
 }
 
 void	check_shape(char **map_as_array)
 {
 	int		i;
 	int		width;
-	
+
 	i = 0;
 	width = ft_strlen(map_as_array[0]);
-	while(map_as_array[i])
+	while (map_as_array[i])
 	{
 		if (ft_strlen(map_as_array[i]) != width)
 			raise_error("Map must be rectangular!");
@@ -76,7 +75,7 @@ void	check_walls(t_game *game_data)
 {
 	size_t		row;
 	size_t		col;
-	char 		**map;
+	char		**map;
 
 	row = 0;
 	col = 0;
@@ -87,7 +86,7 @@ void	check_walls(t_game *game_data)
 			raise_error("Map must be surrounded by walls!");
 		col++;
 	}
-	while(row < game_data->height)
+	while (row < game_data->height)
 	{
 		if (map[row][0] != '1' || map[row][game_data->width - 1] != '1')
 			raise_error("Map must be surrounded by walls!");
@@ -117,7 +116,7 @@ void	path_checker(t_game *game_data)
 {
 	t_game		temp_data;
 	size_t		i;
-	
+
 	temp_data.collectibles = game_data->collectibles;
 	temp_data.player_row = game_data->player_row;
 	temp_data.player_col = game_data->player_col;
@@ -128,7 +127,7 @@ void	path_checker(t_game *game_data)
 	if (temp_data.map_as_array == NULL)
 		raise_error("Failed to allocate memory (temp_data)");
 	i = 0;
-	while(game_data->map_as_array[i])
+	while (game_data->map_as_array[i])
 	{
 		temp_data.map_as_array[i] = ft_strdup(game_data->map_as_array[i]);
 		if (temp_data.map_as_array[i] == NULL)

@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 19:59:37 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/19 16:36:38 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 
 # define PIXELS 64
 
-void check();
+void			check(void);
 
 //-------STRUCTS-------//
-typedef	struct s_image
+typedef struct s_image
 {
 	mlx_image_t	*player;
 	mlx_image_t	*collectibles;
@@ -35,9 +35,11 @@ typedef	struct s_image
 	mlx_image_t	*space;
 	mlx_image_t	*exit_closed;
 	mlx_image_t	*exit_open;
+	mlx_image_t	*moves_block;
+	mlx_image_t	*moves;
 }				t_image;
 
-typedef	struct s_game
+typedef struct s_game
 {
 	mlx_t		*mlx;
 	char		**map_as_array;
@@ -56,23 +58,21 @@ typedef	struct s_game
 
 //-------INITIALIZATION FUNCTIONS-------//
 t_game			*initialize_environment(char *str);
-t_game 			*initialize_game_parameters(char	**array);
+t_game			*initialize_game_parameters(char	**array);
 t_image			*load_images(mlx_t *mlx);
 
-
-
 //-------IMAGES-------//
-void	load_player(mlx_t *mlx, t_image *image);
-void	load_collectible(mlx_t *mlx, t_image *image);
-void	load_wall(mlx_t *mlx, t_image *image);
-void	load_space(mlx_t *mlx, t_image *image);
-void	load_exit_closed(mlx_t *mlx, t_image *image);
-void	load_exit_open(mlx_t *mlx, t_image *image);
-
+void			load_player(mlx_t *mlx, t_image *image);
+void			load_collectible(mlx_t *mlx, t_image *image);
+void			load_wall(mlx_t *mlx, t_image *image);
+void			load_space(mlx_t *mlx, t_image *image);
+void			load_exit_closed(mlx_t *mlx, t_image *image);
+void			load_exit_open(mlx_t *mlx, t_image *image);
+void			load_moves_block(mlx_t *mlx, t_image *image);
 
 //-------UTILS-------//
 void			raise_error(char *str);
-void 			raise_error_free(char *str, t_game *game_data);
+void			raise_error_free(char *str, t_game *game_data);
 void			check_extension(char *str);
 
 //-------MAP-------//
@@ -87,21 +87,17 @@ void			path_checker(t_game *game_data);
 void			get_collectables(t_game *game_data, char *map);
 void			render_map(t_game *game_data);
 void			fill_space(t_game *game_data);
+void			render_moves_block(t_game *game_data);
 size_t			get_row(char **map, char c, size_t height, size_t width);
 size_t			get_col(char **map, char c, size_t height, size_t width);
 
 //-------MOVES-------//
-
 void			move_hook_callback(mlx_key_data_t keydata, void *data);
 void			move_up(t_game *game_data);
 void			move_down(t_game *game_data);
 void			move_left(t_game *game_data);
 void			move_right(t_game *game_data);
 void			check_progress(t_game *game_data);
-//void 			end_game(t_game *game_data);
 void			display_moves(t_game *game_data);
-
-
-
 
 #endif

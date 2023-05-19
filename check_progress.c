@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/16 17:25:57 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 17:46:01 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/19 16:46:28 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ void	check_progress(t_game *game_data)
 	{
 		game_data->can_exit = 1;
 		game_data->images->exit_closed->enabled = false;
-		if (mlx_image_to_window(game_data->mlx, game_data->images->exit_open, PIXELS * game_data->exit_col, PIXELS * game_data->exit_row) == -1)
+		if (mlx_image_to_window(
+				game_data->mlx,
+				game_data->images->exit_open,
+				PIXELS * game_data->exit_col,
+				PIXELS * game_data->exit_row) == -1)
 		{
 			raise_error("Error displaying the exit_open image.");
 		}
@@ -32,4 +36,3 @@ void	check_progress(t_game *game_data)
 		mlx_close_window(game_data->mlx);
 	}
 }
-

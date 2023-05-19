@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/09 12:24:29 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/18 20:01:01 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/19 16:29:08 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	move_hook_callback(mlx_key_data_t keydata, void *data)
 {
 	t_game	*game_data;
-	
+
 	game_data = (t_game *)data;
 	check_progress(game_data);
 	display_moves(game_data);

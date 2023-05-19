@@ -6,13 +6,13 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/18 19:28:52 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/19 17:07:47 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-t_game *initialize_game_parameters(char	**array)
+t_game	*initialize_game_parameters(char	**array)
 {
 	t_game	*game_data;
 
@@ -25,7 +25,6 @@ t_game *initialize_game_parameters(char	**array)
 	game_data->collected = 0;
 	game_data->can_exit = 0;
 	game_data->moves = 0;
-
 	get_start_position(game_data, 'P');
 	get_start_position(game_data, 'E');
 	return (game_data);
@@ -38,7 +37,6 @@ t_game	*initialize_environment(char *str)
 	char	**map_as_array;
 
 	map_as_string = read_map(str);
-	
 	check_empty_lines(map_as_string);
 	map_as_array = ft_split(map_as_string, '\n');
 	if (map_as_array == NULL)
@@ -49,21 +47,15 @@ t_game	*initialize_environment(char *str)
 	check_walls(game_data);
 	get_collectables(game_data, map_as_string);
 	path_checker(game_data);
-
-	printf("to collect: %zu\n", game_data->collectibles);
-	//printf("%zu\n", game_data->height);
-	//printf("\n%zu\n", game_data->collectibles);
-
-	//printf("%s\n", map_as_string);
+	ft_printf("Moves: 0\n");
 	free(map_as_string);
-	//ft_free_array(map_as_array, game_data->height); // -> might need it
-	return(game_data);
+	return (game_data);
 }
 
 t_image	*load_images(mlx_t *mlx)
 {
 	t_image	*image_data;
-	
+
 	image_data = malloc(sizeof(t_image));
 	if (image_data == NULL)
 		raise_error("Failed to allocate memmory for image_data struct.");
@@ -73,10 +65,7 @@ t_image	*load_images(mlx_t *mlx)
 	load_space(mlx, image_data);
 	load_exit_closed(mlx, image_data);
 	load_exit_open(mlx, image_data);
+	load_moves_block(mlx, image_data);
+	image_data->moves = NULL;
 	return (image_data);
 }
-
-	// printf("player_col: %zu\n", game_data->player_col);
-	// printf("player_row: %zu\n", game_data->player_row);
-	// printf("exit_col: %zu\n", game_data->exit_col);
-	// printf("exit_row: %zu\n", game_data->exit_row);
