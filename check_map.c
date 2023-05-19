@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/28 20:17:02 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/19 17:01:00 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 19:27:38 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,11 @@ void	check_map_symbols(const char *str)
 		raise_error("Invalid symbols!");
 }
 
-void	check_shape(char **map_as_array)
-{
-	int		i;
-	int		width;
-
-	i = 0;
-	width = ft_strlen(map_as_array[0]);
-	while (map_as_array[i])
-	{
-		if (ft_strlen(map_as_array[i]) != width)
-			raise_error("Map must be rectangular!");
-		i++;
-	}
-}
-
 void	check_walls(t_game *game_data)
 {
+	char		**map;
 	size_t		row;
 	size_t		col;
-	char		**map;
 
 	row = 0;
 	col = 0;

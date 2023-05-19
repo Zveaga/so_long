@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 14:38:19 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/19 16:39:53 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 19:22:19 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ size_t	get_col(char **map, char c, size_t height, size_t width)
 
 void	get_start_position(t_game *game_data, char c)
 {
+	char		**map;
 	size_t		height;
 	size_t		width;
-	char		**map;
 
 	map = game_data->map_as_array;
 	height = game_data->height;

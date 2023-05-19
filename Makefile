@@ -3,10 +3,10 @@ NAME = so_long
 SRC = \
 read_map.c \
 so_long.c \
-utils.c \
+utils_1.c \
+utils_2.c \
 check_map.c \
 fill_structs.c \
-utils_map.c \
 load_textures_1.c \
 load_textures_2.c \
 map_rendering.c \
@@ -55,7 +55,6 @@ clean:
 	rm -f $(OBJ)
 	make -C libft clean
 	make -C printf clean
-#make -C MLX42/build clean
 
 fclean: clean
 	rm -f $(NAME) libft/libft.a printf/libftprintf.a

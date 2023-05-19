@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:39 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/19 17:01:17 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 19:40:25 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 void	check(void)
 {
 	system("leaks -q so_long");
+}
+
+static void	free_structs(t_game *game_data, t_image *image_data)
+{
+	ft_free_array(game_data->map_as_array, game_data->height);
+	free(game_data);
+	free(image_data);
 }
 
 int	main(int argc, char **argv)
@@ -39,13 +46,7 @@ int	main(int argc, char **argv)
 		[game_data->player_col] == 'E')
 		sleep(1);
 	mlx_terminate(game_data->mlx);
-	ft_free_array(game_data->map_as_array, game_data->height);
-	free(game_data);
-	free(image_data);
-	//atexit(check);
-	return (0);
+	free_structs(game_data, image_data);
+	atexit(check);
+	return (EXIT_SUCCESS);
 }
-
-//printf("collected: %zu\n", game_data->collected);
-//printf("can_exit: %zu\n", game_data->can_exit);
-//printf("moves: %zu\n", game_data->moves);

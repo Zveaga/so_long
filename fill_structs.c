@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/19 17:07:47 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/19 19:14:45 by rares         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_game	*initialize_environment(char *str)
 	check_empty_lines(map_as_string);
 	map_as_array = ft_split(map_as_string, '\n');
 	if (map_as_array == NULL)
-		raise_error("map_as_array returned NULL.");
+		raise_error("Error while creating the 2d array.");
 	check_map_symbols(map_as_string);
 	check_shape(map_as_array);
 	game_data = initialize_game_parameters(map_as_array);
