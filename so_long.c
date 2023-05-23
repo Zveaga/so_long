@@ -6,16 +6,11 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:39 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/23 18:23:57 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/05/23 18:41:03 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
-
-void	check(void)
-{
-	system("leaks -q so_long");
-}
 
 static void	free_structs_(t_game *game_data, t_image *image_data)
 {
@@ -45,7 +40,6 @@ int	main(int argc, char **argv)
 	mlx_loop(game_data->mlx);
 	mlx_terminate(game_data->mlx);
 	free_structs_(game_data, image_data);
-	atexit(check);
 	return (EXIT_SUCCESS);
 }
 
