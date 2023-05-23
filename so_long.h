@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/24 14:53:42 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/19 16:36:38 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/23 13:49:39 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@
 # include"libft/libft.h"
 # include"printf/ft_printf.h"
 # include<unistd.h>
-# include<stdio.h>
 # include<stdlib.h>
 # include<fcntl.h>
 # include<errno.h>
 
 # define PIXELS 64
-
-void			check(void);
 
 //-------STRUCTS-------//
 typedef struct s_image

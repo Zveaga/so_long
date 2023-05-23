@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/29 13:52:11 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/19 19:14:45 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/23 13:57:04 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_game	*initialize_environment(char *str)
 	check_walls(game_data);
 	get_collectables(game_data, map_as_string);
 	path_checker(game_data);
-	ft_printf("Moves: 0\n");
 	free(map_as_string);
 	return (game_data);
 }

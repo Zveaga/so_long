@@ -6,7 +6,7 @@
 /*   By: raanghel <raanghel@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/18 17:28:38 by raanghel      #+#    #+#                 */
-/*   Updated: 2023/05/19 16:28:27 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/23 18:35:14 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	display_moves(t_game *game_data)
 	if (moves == NULL)
 		raise_error("Error when converting moves to string.");
 	if (game_data->images->moves != NULL)
+	{
 		game_data->images->moves->enabled = false;
+		mlx_delete_image(game_data->mlx, game_data->images->moves);
+	}
 	game_data->images->moves = mlx_put_string(game_data->mlx,
 			moves, ((2 * PIXELS) + 5),
 			((game_data->height - 1) * PIXELS) + 22);

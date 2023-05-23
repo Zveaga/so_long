@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/04/28 14:40:56 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/19 19:35:13 by rares         ########   odam.nl         */
+/*   Updated: 2023/05/23 18:19:19 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,22 @@ void	raise_error(char *str)
 {
 	write(2, "Error\n", 7);
 	ft_putendl_fd(str, 2);
-	atexit(check);
 	exit(EXIT_FAILURE);
 }
 
 void	check_extension(char *str)
 {
-	if (ft_strnstr(str, ".ber", ft_strlen(str)) == NULL)
+	int	len;
+
+	len = ft_strlen(str);
+	if (len < 4
+		|| str[len - 4] != '.'
+		|| str[len - 3] != 'b'
+		|| str[len - 2] != 'e'
+		|| str[len - 1] != 'r')
+	{
 		raise_error("Wrong file extension. File must be in .ber format.");
+	}
 }
 
 void	check_shape(char **map_as_array)
