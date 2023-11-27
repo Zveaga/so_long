@@ -6,7 +6,7 @@
 /*   By: rares <rares@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/16 17:27:52 by rares         #+#    #+#                 */
-/*   Updated: 2023/05/23 14:12:46 by raanghel      ########   odam.nl         */
+/*   Updated: 2023/11/27 15:20:43 by raanghel      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	remove_collectible(t_game *game_data, int row, int col)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	col = col * PIXELS;
