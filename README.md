@@ -30,10 +30,10 @@ To change the map, replace "maps/map.ber" with the path to another map as long a
 
 ## Map rules
 - Map can only contain the following 5 characters:
-  1. `0` for empty space
-  2. `1` for a wall
-  3. `C` for a collectable
-  4. `E` for the map exit
-  5. `P` for the player’s starting position
+  `0` for empty space
+  `1` for a wall
+  `C` for a collectable
+  `E` for the map exit
+  `P` for the player’s starting position
 
 
