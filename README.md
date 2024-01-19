@@ -1,8 +1,11 @@
 # So_long
 
-## Return Value
-
 ## Key Concepts
+- Colors
+- Images
+- Textures
+- Algorithms
+- Working with external graphical library
 
 ## How To Use
 Clone the repository:
