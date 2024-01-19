@@ -38,7 +38,7 @@ Map can only contain the following 5 characters:
 
 ### Example of a valid map
 
-1111111111111
+1111111111111\n
 10010000000C1
 1000011111001
 1P0011E000001
