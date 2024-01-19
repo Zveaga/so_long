@@ -29,7 +29,7 @@ Run it:
 To change the map, replace "maps/map.ber" with the path to another map as long as it respects the rules.
 
 ## Map rules
-- Map can only contain the following 5 characters:
+Map can only contain the following 5 characters:
   - `0` for empty space
   - `1` for a wall
   - `C` for a collectable
