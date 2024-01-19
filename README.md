@@ -36,4 +36,20 @@ Map can only contain the following 5 characters:
   - `E` for the map exit
   - `P` for the player’s starting position
 
+### Example of a valid map
+
+1111111111111
+10010000000C1
+1000011111001
+1P0011E000001
+1111111111111
+
+
+
+
+
+
+
+
+
 
