@@ -38,12 +38,13 @@ Map can only contain the following 5 characters:
 
 ### Example of a valid map
 
-1111111111111\n
-10010000000C1
-1000011111001
-1P0011E000001
-1111111111111
-
+```
+111111111
+10000CC01
+1P00C00E1
+100000001
+111111111
+```
 
 
 
